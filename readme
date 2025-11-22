@@ -1,0 +1,65 @@
+##### FOR DEVELOPMENT ############
+
+# Create environment
+conda create -n house-price-predictor python=3.11
+conda activate house-price-predictor
+
+# Install packages
+conda install flask numpy pandas scikit-learn
+pip install gunicorn
+
+# Export for sharing
+conda env export --from-history > environment.yml
+
+
+###### FOR DEPLOYMENT #####
+
+# From your conda environment
+pip list --format=freeze > requirements.txt
+```
+
+### 3. **Project Structure**:
+```
+house-price-predictor/
+├── app.py
+├── model.py
+├── environment.yml      # For conda users
+├── requirements.txt     # For deployment/pip users
+├── README.md           # Explain both options
+└── ...
+
+
+
+## Setup with Conda (Recommended for Development)
+conda env create -f environment.yml
+conda activate house-price-predictor
+
+## Setup with Pip (For Deployment)
+pip install -r requirements.txt
+
+
+
+
+
+
+
+
+########### QUICK COMMANDS SUMMARY ######### 
+
+# Export conda environment
+conda env export > environment.yml
+conda env export --from-history > environment.yml  # cleaner
+
+# Create from environment.yml
+conda env create -f environment.yml
+
+# Generate requirements.txt from conda env
+pip list --format=freeze > requirements.txt
+
+# Update conda environment
+conda env update -f environment.yml
+
+# Remove conda environment
+conda env remove -n house-price-predictor
+
+pip freeze > requirements.txt 
